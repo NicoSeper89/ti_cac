@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;
+}
+
+.gallery-item {
+    position: relative;
+    height: 8rem;
+    width: 8rem;
+    overflow: hidden;
+    object-fit: cover;
+    border: solid 2px rgba(40, 40, 40, 0.9)
+}
+  
+.gallery-item > img {
+    height: 100%;
+}
