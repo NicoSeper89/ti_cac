@@ -129,10 +129,13 @@
     <!-- GALLERY -->
 
     <section
-      class="text-light pt-4 ps-4 pe-5"
+      id="gallery-section"
+      class="py-5 ps-4 pe-5"
       style="background-color: rgba(12, 12, 12, 0.97)"
     >
-      <h2 class="fs-1 text-center pb-3">Galeria de imagenes</h2>
+      <div class="title">
+        <h3 class="">Galeria de imagenes</h3>
+      </div>
       <div
         class="position-relative row align-items-start py-3 rounded mb-3"
         style="background-color: rgba(53, 53, 53, 0.431)"
@@ -244,7 +247,9 @@
       class="d-flex ps-4 pe-5 pb-5 text-light d-flex flex-column text-center"
       style="background-color: rgba(12, 12, 12, 0.97)"
     >
-      <h2 class="py-4 fs-1">NOTICIAS</h2>
+      <div class="title">
+        <h3 class="">NOTICIAS</h3>
+      </div>
       <div class="row row-cols-1 row-cols-md-3 g-2">
         <div class="col">
           <div class="card">
@@ -362,7 +367,9 @@
         class="rounded bg-dark w-75 h-75 d-flex gap-3 justify-content-around align-items-start pt-4 px-4"
       >
         <div>
-          <p class="fs-1">Historia</p>
+          <div class="title">
+            <h3 class="">historia</h3>
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat,
             culpa odit? Architecto assumenda facere, inventore amet consectetur
@@ -393,50 +400,79 @@
     <!-- CONTACT SECTION -->
 
     <section
-      class="position-relative d-flex justify-content-center align-items-center pb-5"
-      style="background-color: rgba(12, 12, 12, 0.97)"
+      id="contact-section"
+      class="position-relative d-flex flex-column justify-content-center align-items-center py-5"
     >
-      <div class="position row gy-4 bg-light rounded pb-4 w-50 mt-5">
-        <p class="col-12 text-center fs-3 p-0 mb-2">Contactanos</p>
+      <div class="title col-12">
+        <h3 class="pb-3">contactanos</h3>
+      </div>
+      <form
+        id="contact-form"
+        novalidate
+        class="row gy-4 bg-dark rounded p-4 w-50"
+      >
         <div class="col-6">
           <input
+            id="name"
             type="text"
             class="form-control"
             placeholder="Nombre"
             aria-label="Nombre"
+            required
           />
+          <div  class="invalid-feedback">
+            Por favor ingrese su nombre
+          </div>
         </div>
         <div class="col-6">
           <input
+            id="surname"
             type="text"
             class="form-control"
             placeholder="Apellido"
             aria-label="Apellido"
+            required
           />
+          <div  class="invalid-feedback">
+            Por favor ingrese su apellido
+          </div>
         </div>
         <div class="col-12">
           <input
-            type="text"
+            id="email"
+            type="email"
             class="form-control"
             placeholder="Email"
             aria-label="Email"
+            required
           />
+          <div  class="invalid-feedback">
+            Por favor ingrese un email válido
+          </div>
         </div>
         <div class="form-floating">
           <textarea
             class="form-control"
             placeholder="Leave a comment here"
-            id="floatingTextarea"
+            id="comment"
             style="height: 100px"
+            required
           ></textarea>
-          <label for="floatingTextarea" class="ms-3">Comments</label>
+          <label for="comment" class="ms-3">Comentario</label>
+          <div  class="invalid-feedback">
+            Por favor ingrese su comentario
+          </div>
         </div>
-      </div>
+        <div class="d-flex justify-content-end px-2 gap-2">
+          <input class="btn btn-danger" type="reset" />
+          <input class="btn btn-dark" type="submit" />
+        </div>
+      </form>
     </section>
 
     <!-- FOOTER -->
 
-    <footer class="container-fluid bg-danger p-4"></footer>
+    <footer class="container-fluid bg-danger p-5"></footer>
 
     <!-- BOOTSTRAP  -->
 
@@ -445,5 +481,8 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <!-- JS -->
+    <script src="scripts.js"></script>
   </body>
 </html>
