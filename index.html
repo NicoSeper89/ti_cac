@@ -20,9 +20,30 @@
   <body class="position-relative d-flex flex-column vw-100 overflow-x-hidden">
     <!-- NAVBAR -->
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-dark text-light py-3">
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top flex-column">
+      <div id="topInfoBar">
+        <span> 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 |</span>
+        <span>| 03491 - 42000 </span>
+      </div>
       <div class="container-fluid">
-        <a class="navbar-brand text-light" href="#">Bomberos Ceres</a>
+        <div
+          id="logoContainer"
+          class="position-relative d-flex gap-2 justify-content-center align-items-center"
+        >
+          <img src="source/image/logo.png" alt="Logo" width="110px" />
+        </div>
         <button
           class="navbar-toggler"
           type="button"
@@ -54,15 +75,28 @@
               <a href="#">Contactos</a>
             </li>
           </ul>
-          <button class="btn btn-danger">Colaboraciones</button>
+          <button class="btn btn-outline-secondary">Colaboraciones</button>
         </div>
       </div>
     </nav>
 
     <!-- HOME -->
 
-    <main id="home" class="position-relative vh-100">
-      <div class="position-absolute w-100 h-100">
+    <main id="home" class="position-relative d-flex">
+      <div
+        id="homeBackground"
+        class="position-absolute w-100 h-100 overflow-hidden d-flex justify-content-center align-items-center"
+      >
+        <img
+          class="position-absolute"
+          src="https://clipart.info/images/ccovers/1559831138smoke-png-transparent-10.png"
+          alt="backgroundSmoke1"
+        />
+        <img
+          class="position-absolute"
+          src="https://clipart.info/images/ccovers/1559831138smoke-png-transparent-10.png"
+          alt="backgroundSmoke2"
+        />
         <img
           class="object-fit-cover w-100 h-100"
           src="https://i.pinimg.com/originals/a7/e2/ee/a7e2ee34bb9c924fef5ffb1ee14d971c.jpg"
@@ -70,28 +104,24 @@
         />
       </div>
       <div
-        class="position-relative d-flex flex-column align-items-start justify-content-center h-100 z-1 p-5 bg-dark bg-opacity-25"
+        id="leftHomeContainer"
+        class="d-flex flex-column align-items-center justify-content-center z-1 gap-3"
       >
-        <div
-          class="p-4 ms-5 d-flex flex-column bg-dark rounded text-white shadow-lg"
-        >
-          <h1 class="fs-1 mb-3">BOMBEROS VOLUNTARIOS CERES</h1>
-          <div>
-            <span class="fs-2">EMERGENCIAS </span>
-            <span class="rounded-pill text-dark bg-warning px-5 py-1 fs-2">
-              03491-42000
-            </span>
-          </div>
+        <div class="title">
+          <div></div>
+          <h1>
+            Bomberos <br />
+            Voluntarios
+            <span> Ceres</span>
+          </h1>
+        </div>
+        <div class="homeText">52 Años al servicio de la comunidad</div>
 
-          <hr class="border border-warning" />
-          <div class="d-flex justify-content-end px-2 gap-3">
-            <button type="button" class="btn btn-danger">
-              Numeros Importantes
-            </button>
-            <button type="button" class="btn btn-outline-light">
-              Noticias
-            </button>
-          </div>
+        <div class="d-flex justify-content-end px-2 gap-3">
+          <button type="button" id="numbersButton" class="btn">
+            Numeros Importantes
+          </button>
+          <button type="button" class="btn btn-dark">Noticias</button>
         </div>
       </div>
     </main>
@@ -165,7 +195,8 @@
           </button>
         </div>
         <div class="col-4 d-flex flex-column gap-4">
-          <div class="position-relative d-flex flex-wrap gap-2 justify-content-start"
+          <div
+            class="position-relative d-flex flex-wrap gap-2 justify-content-start"
           >
             <div class="gallery-item border border-danger border-2">
               <img
@@ -198,10 +229,7 @@
               />
             </div>
           </div>
-          <div class="btn-group gap-1"
-            role="group"
-            aria-label="First group"
-          >
+          <div class="btn-group gap-1" role="group" aria-label="First group">
             <button type="button" class="btn btn-danger">&lt;</button>
             <button type="button" class="btn btn-secondary">1</button>
             <button type="button" class="btn btn-danger">></button>
@@ -212,114 +240,203 @@
 
     <!-- NEWS SECTION -->
 
-    <section class="d-flex ps-4 pe-5 pb-5 text-light d-flex flex-column text-center" style="background-color: rgba(12, 12, 12, 0.97)">
+    <section
+      class="d-flex ps-4 pe-5 pb-5 text-light d-flex flex-column text-center"
+      style="background-color: rgba(12, 12, 12, 0.97)"
+    >
       <h2 class="py-4 fs-1">NOTICIAS</h2>
       <div class="row row-cols-1 row-cols-md-3 g-2">
         <div class="col">
           <div class="card">
-            <img src="https://scontent.fros2-2.fna.fbcdn.net/v/t31.18172-8/24799345_2360877647285860_5087002271172526390_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE7Vp_6JBjj11PwjGM2x1XhRXc9QxjzUSpFdz1DGPNRKkUGtVnyhL2eH30dRARrD7M&_nc_ohc=L7uULZFKoOcAb5hPlkN&_nc_oc=AdhFpNNXDNqG2t70owx_0BV12Eak1yKcldIyH8aJPu7my8DqpV4d8a4m-yyAjRRyfdk&_nc_ht=scontent.fros2-2.fna&oh=00_AfA1NptO3nS5nTPUMv3QGe8c4mVhlWt-wJdRJRubi1diKA&oe=6653C262" class="card-img-top" alt="imagen noticias 1">
+            <img
+              src="https://scontent.fros2-2.fna.fbcdn.net/v/t31.18172-8/24799345_2360877647285860_5087002271172526390_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeE7Vp_6JBjj11PwjGM2x1XhRXc9QxjzUSpFdz1DGPNRKkUGtVnyhL2eH30dRARrD7M&_nc_ohc=L7uULZFKoOcAb5hPlkN&_nc_oc=AdhFpNNXDNqG2t70owx_0BV12Eak1yKcldIyH8aJPu7my8DqpV4d8a4m-yyAjRRyfdk&_nc_ht=scontent.fros2-2.fna&oh=00_AfA1NptO3nS5nTPUMv3QGe8c4mVhlWt-wJdRJRubi1diKA&oe=6653C262"
+              class="card-img-top"
+              alt="imagen noticias 1"
+            />
             <div class="card-body">
               <h5 class="card-title">Noticia 1</h5>
-              <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab molestiae deserunt eligendi itaque numquam nostrum, eos aut aliquam eum aliquid, quasi quae possimus minima veniam tempore architecto eveniet consequuntur iure?</p>
+              <p class="card-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab
+                molestiae deserunt eligendi itaque numquam nostrum, eos aut
+                aliquam eum aliquid, quasi quae possimus minima veniam tempore
+                architecto eveniet consequuntur iure?
+              </p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://scontent.fros2-2.fna.fbcdn.net/v/t39.30808-6/435351827_447934770918008_6812356939715414611_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHBuhGGsszH8_z59TgoZUUDcj5s-I_K67hyPmz4j8rruDomix3UEy89zzG9Pf2tDr8&_nc_ohc=n7bLASHFRNIQ7kNvgEi_A5e&_nc_ht=scontent.fros2-2.fna&oh=00_AfCUFbakQf0M1LzQYBtSCwdQoR_PNUpVBPJcYYU_TuM62A&oe=6632249C" class="card-img-top" alt="imagen noticia 2">
+            <img
+              src="https://scontent.fros2-2.fna.fbcdn.net/v/t39.30808-6/435351827_447934770918008_6812356939715414611_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHBuhGGsszH8_z59TgoZUUDcj5s-I_K67hyPmz4j8rruDomix3UEy89zzG9Pf2tDr8&_nc_ohc=n7bLASHFRNIQ7kNvgEi_A5e&_nc_ht=scontent.fros2-2.fna&oh=00_AfCUFbakQf0M1LzQYBtSCwdQoR_PNUpVBPJcYYU_TuM62A&oe=6632249C"
+              class="card-img-top"
+              alt="imagen noticia 2"
+            />
             <div class="card-body">
               <h5 class="card-title">Noticia 2</h5>
-              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci reiciendis nam commodi quibusdam minima mollitia suscipit a cupiditate, est velit similique! Deserunt fuga recusandae eaque facilis! Odio est commodi incidunt?</p>
+              <p class="card-text">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Adipisci reiciendis nam commodi quibusdam minima mollitia
+                suscipit a cupiditate, est velit similique! Deserunt fuga
+                recusandae eaque facilis! Odio est commodi incidunt?
+              </p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://scontent.fros2-1.fna.fbcdn.net/v/t39.30808-6/418474081_403448608699958_3351175435482932007_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGNlrwpD07K5n-rbVLgvgN5nINy1wgMDWecg3LXCAwNZ2a0_s9BBwmantlGa65MSUk&_nc_ohc=j6GOpigrYQQQ7kNvgHWj_6K&_nc_ht=scontent.fros2-1.fna&oh=00_AfCk_-gufpl2PlOYiI9B6AlX6-wLLC5gb7wRfHn_gyQUwQ&oe=66323A22" class="card-img-top" alt="imagen noticia 3">
+            <img
+              src="https://scontent.fros2-1.fna.fbcdn.net/v/t39.30808-6/418474081_403448608699958_3351175435482932007_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGNlrwpD07K5n-rbVLgvgN5nINy1wgMDWecg3LXCAwNZ2a0_s9BBwmantlGa65MSUk&_nc_ohc=j6GOpigrYQQQ7kNvgHWj_6K&_nc_ht=scontent.fros2-1.fna&oh=00_AfCk_-gufpl2PlOYiI9B6AlX6-wLLC5gb7wRfHn_gyQUwQ&oe=66323A22"
+              class="card-img-top"
+              alt="imagen noticia 3"
+            />
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content.
+              </p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://scontent.fros2-2.fna.fbcdn.net/v/t39.30808-6/393815609_359149543129865_5528014211295272275_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFAb8sXt18eVrA3Lt35DdQdQzMc9m6tS8lDMxz2bq1LyUBn3omq2olLsKx-8ippRLc&_nc_ohc=zapJqqJXk0cQ7kNvgGDDXtA&_nc_ht=scontent.fros2-2.fna&oh=00_AfB4VNjIqUdvLz0Q-ch5lHkrx1HolvkA0hztxn3jkmxj9Q&oe=6632385E" class="card-img-top" alt="imagen noticias 4">
+            <img
+              src="https://scontent.fros2-2.fna.fbcdn.net/v/t39.30808-6/393815609_359149543129865_5528014211295272275_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFAb8sXt18eVrA3Lt35DdQdQzMc9m6tS8lDMxz2bq1LyUBn3omq2olLsKx-8ippRLc&_nc_ohc=zapJqqJXk0cQ7kNvgGDDXtA&_nc_ht=scontent.fros2-2.fna&oh=00_AfB4VNjIqUdvLz0Q-ch5lHkrx1HolvkA0hztxn3jkmxj9Q&oe=6632385E"
+              class="card-img-top"
+              alt="imagen noticias 4"
+            />
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://scontent.fros2-2.fna.fbcdn.net/v/t39.30808-6/411221085_389126500132169_9148476862613465518_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG_S5iupggbh7D57Z1ov5ltRBJGU804S11EEkZTzThLXQDWtojduaO8QKByyDrvj8M&_nc_ohc=qi-uKvWocIIQ7kNvgGyEXyv&_nc_oc=AdgCEgu6WAnRLYzMqYlz7dcWvYpKeyzO6XAqnOwu859_Av-ie4H3u92wI7lHCx0HRhY&_nc_ht=scontent.fros2-2.fna&oh=00_AfCiCe3egble1pskzhl21z1jBQ-FJvQg-z5FDd7aQu550w&oe=6632160C" class="card-img-top" alt="imagen noticias 5">
+            <img
+              src="https://scontent.fros2-2.fna.fbcdn.net/v/t39.30808-6/411221085_389126500132169_9148476862613465518_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG_S5iupggbh7D57Z1ov5ltRBJGU804S11EEkZTzThLXQDWtojduaO8QKByyDrvj8M&_nc_ohc=qi-uKvWocIIQ7kNvgGyEXyv&_nc_oc=AdgCEgu6WAnRLYzMqYlz7dcWvYpKeyzO6XAqnOwu859_Av-ie4H3u92wI7lHCx0HRhY&_nc_ht=scontent.fros2-2.fna&oh=00_AfCiCe3egble1pskzhl21z1jBQ-FJvQg-z5FDd7aQu550w&oe=6632160C"
+              class="card-img-top"
+              alt="imagen noticias 5"
+            />
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <img src="https://scontent.fros2-1.fna.fbcdn.net/v/t39.30808-6/416842535_397481035963382_1730254810152345239_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFZxX6juLPH53OedCFB3rY5jWqlfucStvCNaqV-5xK28DUlsWYWJLm93wVTEoNZKRc&_nc_ohc=CVJIbPxeQAEQ7kNvgFw2aBc&_nc_ht=scontent.fros2-1.fna&oh=00_AfBJrW9PJyvFDseDdDG1are9AAzuBKzFDe_e5QJUtNpb6w&oe=66320F81" class="card-img-top" alt="imagen noticias 6">
+            <img
+              src="https://scontent.fros2-1.fna.fbcdn.net/v/t39.30808-6/416842535_397481035963382_1730254810152345239_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFZxX6juLPH53OedCFB3rY5jWqlfucStvCNaqV-5xK28DUlsWYWJLm93wVTEoNZKRc&_nc_ohc=CVJIbPxeQAEQ7kNvgFw2aBc&_nc_ht=scontent.fros2-1.fna&oh=00_AfBJrW9PJyvFDseDdDG1are9AAzuBKzFDe_e5QJUtNpb6w&oe=66320F81"
+              class="card-img-top"
+              alt="imagen noticias 6"
+            />
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
             </div>
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- HISTORY SECTION -->
 
-    <section class="d-flex justify-content-center text-light pb-4" style="background-color: rgba(12, 12, 12, 0.97)">
-    
-      <div class="rounded bg-dark w-75 h-75 d-flex gap-3 justify-content-around align-items-start pt-4 px-4">
+    <section
+      class="d-flex justify-content-center text-light pb-4"
+      style="background-color: rgba(12, 12, 12, 0.97)"
+    >
+      <div
+        class="rounded bg-dark w-75 h-75 d-flex gap-3 justify-content-around align-items-start pt-4 px-4"
+      >
         <div>
           <p class="fs-1">Historia</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, culpa odit? Architecto assumenda facere, inventore amet consectetur perspiciatis dicta laborum aliquam! Distinctio reprehenderit perspiciatis ex porro similique, delectus tenetur eveniet?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, culpa odit? Architecto assumenda facere, inventore amet consectetur perspiciatis dicta laborum aliquam! Distinctio reprehenderit perspiciatis ex porro similique, delectus tenetur eveniet?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, culpa odit? Architecto assumenda facere, inventore amet consectetur perspiciatis dicta laborum aliquam! Distinctio reprehenderit perspiciatis ex porro similique, delectus tenetur eveniet?</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat,
+            culpa odit? Architecto assumenda facere, inventore amet consectetur
+            perspiciatis dicta laborum aliquam! Distinctio reprehenderit
+            perspiciatis ex porro similique, delectus tenetur eveniet?Lorem
+            ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, culpa
+            odit? Architecto assumenda facere, inventore amet consectetur
+            perspiciatis dicta laborum aliquam! Distinctio reprehenderit
+            perspiciatis ex porro similique, delectus tenetur eveniet?Lorem
+            ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, culpa
+            odit? Architecto assumenda facere, inventore amet consectetur
+            perspiciatis dicta laborum aliquam! Distinctio reprehenderit
+            perspiciatis ex porro similique, delectus tenetur eveniet?
+          </p>
         </div>
-        <div class="vr border border-1 border-warning my-5 rounded">
-        </div>
+        <div class="vr border border-1 border-warning my-5 rounded"></div>
         <div class="pt-5">
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, culpa odit? Architecto assumenda facere, inventore amet consectetur perspiciatis dicta laborum aliquam! Distinctio reprehenderit perspiciatis ex porro similique, delectus tenetur eveniet?</p>
-       
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat,
+            culpa odit? Architecto assumenda facere, inventore amet consectetur
+            perspiciatis dicta laborum aliquam! Distinctio reprehenderit
+            perspiciatis ex porro similique, delectus tenetur eveniet?
+          </p>
         </div>
       </div>
-
     </section>
 
     <!-- CONTACT SECTION -->
 
-    <section class="position-relative d-flex justify-content-center align-items-center pb-5" style="background-color: rgba(12, 12, 12, 0.97)">
-
+    <section
+      class="position-relative d-flex justify-content-center align-items-center pb-5"
+      style="background-color: rgba(12, 12, 12, 0.97)"
+    >
       <div class="position row gy-4 bg-light rounded pb-4 w-50 mt-5">
         <p class="col-12 text-center fs-3 p-0 mb-2">Contactanos</p>
         <div class="col-6">
-          <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            aria-label="Nombre"
+          />
         </div>
         <div class="col-6">
-          <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Apellido"
+            aria-label="Apellido"
+          />
         </div>
         <div class="col-12">
-          <input type="text" class="form-control" placeholder="Email" aria-label="Email">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Email"
+            aria-label="Email"
+          />
         </div>
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="floatingTextarea"
+            style="height: 100px"
+          ></textarea>
           <label for="floatingTextarea" class="ms-3">Comments</label>
         </div>
       </div>
-
     </section>
 
     <!-- FOOTER -->
 
-    <footer class="container-fluid bg-danger p-4">
-        
-    </footer>
+    <footer class="container-fluid bg-danger p-4"></footer>
 
     <!-- BOOTSTRAP  -->
 
