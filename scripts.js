@@ -55,3 +55,19 @@ document.querySelector('[type="reset"]').addEventListener("click", function () {
     input.classList.remove("is-valid", "is-invalid");
   });
 });
+
+document.querySelectorAll('.scroll-to-middle').forEach(element => {
+  element.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      const elementPosition = targetElement.offsetTop + targetElement.offsetHeight - window.innerHeight;
+      
+      window.scrollTo({
+          top: elementPosition,
+          behavior: 'auto'
+      });
+  });
+});

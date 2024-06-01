@@ -10,6 +10,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -19,14 +23,14 @@ a {
 
 #navbar {
   position: fixed;
-  background: linear-gradient(180deg, #f7f7f7, #ffffff);
-  height: 7rem;
+  background: linear-gradient(180deg, #e7e7e7, #ffffff);
+  height: 5rem;
   text-wrap: nowrap;
   padding: 0px;
 }
 
 #navbar .container-fluid {
-  height: 5rem;
+  height: 3rem;
 }
 
 #topInfoBar {
@@ -43,10 +47,10 @@ a {
 #logoContainer {
   position: relative;
   left: 0;
-  top: 25px;
+  top: 35px;
 }
 
-#home {
+#home-section {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -60,7 +64,6 @@ a {
 #homeBackground img:nth-of-type(1) {
   transform: translate(0px, 210px);
 }
-
 
 #homeBackground img:nth-of-type(2) {
   transform: scale(-1, -1) translate(-0px, 150px);
@@ -124,6 +127,40 @@ a {
   font-style: italic;
 }
 
+#gallery-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1rem;
+  background-color: rgba(12, 12, 12, 0.97);
+}
+
+#gallery-container {
+  position: relative;
+  height: 32rem;
+  width: 96vw;
+  background-color: rgba(53, 53, 53, 0.431);
+}
+
+#carouselExample {
+  height: 100%;
+}
+
+.carousel-item {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.carousel-item img {
+  height: 30rem;
+  object-fit: cover;
+}
+
 .gallery-item {
   position: relative;
   height: 8rem;
@@ -141,7 +178,7 @@ a {
   background-color: rgba(12, 12, 12, 0.97);
 }
 
-#contact-section > p{
+#contact-section > p {
   color: rgb(210, 210, 210);
   text-shadow: 1px 1px 5px #6b6b6b;
   text-align: center;
