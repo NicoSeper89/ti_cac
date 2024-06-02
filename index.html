@@ -403,24 +403,21 @@
     <!-- WEATHER SECTION -->
 
     <section id="weather-section">
-      <div class="container">
-        <div class="row gap-3 h-25 justify-content-center align-items-center">
-          <div class="col-5 title">
-            <h3 class="fs-1">Informe Meteorologico</h3>
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="container bg-dark p-5 rounded-3">
+          <div class="row gap-3 justify-content-center align-items-center">
+            <div class="col-5 title">
+              <h3 class="fs-1">Informe Meteorologico</h3>
+            </div>
+            <div
+              id="current-weather"
+              class="col d-flex justify-content-around align-items-center h-100 rounded-3 py-3 text-light fw-bold"
+            ></div>
           </div>
           <div
-            id="current-weather"
-            class="col d-flex justify-content-around align-items-center h-100 rounded-3 py-3 text-light fw-bold"
-          >
-          </div>
-        </div>
-        <div class="row gap-2 py-3">
-          <div class="col-4 bg-dark">Tuesday</div>
-          <div class="col-4 bg-dark">Wendesday</div>
-          <div class="col bg-dark">Thuensday</div>
-          <div class="col-4 bg-dark">Friday</div>
-          <div class="col-4 bg-dark">Saturday</div>
-          <div class="col bg-dark">Sunday</div>
+            id="extended-weather-container"
+            class="row gap-2 py-2 text-light fw-bold"
+          ></div>
         </div>
       </div>
     </section>
