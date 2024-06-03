@@ -61,7 +61,6 @@ function createCurrentWeatherCard(weatherData) {
   weatherContainer.appendChild(imgElement);
   weatherContainer.appendChild(secondarySection);
 
-  console.log(weatherContainer);
 }
 
 async function fetchExtendedForecast() {
@@ -74,6 +73,8 @@ async function fetchExtendedForecast() {
     if (data.cod == "400" || data.cod == "404") {
       throw new Error(data.message);
     }
+
+    extendedWeatherItems.innerHTML = ""
 
     data.list.forEach((hourlyWeatherData, i) => {
       const card = createExtendedWeatherCard(hourlyWeatherData);
@@ -89,7 +90,7 @@ function createExtendedWeatherCard(weatherData) {
 
   const temp = document.createElement("div");
 
-  const { dayName, date } = convertToLocalTime(dt);
+  const { dayName, hours } = convertToLocalTime(dt);
   const { imgElement, style } = getImageByWeather(weatherData);
 
   temp.className = `extended-weather-items rounded-1 row m-0`;
@@ -98,9 +99,9 @@ function createExtendedWeatherCard(weatherData) {
   imgElement.style.scale = 0.8
 
   temp.innerHTML = `
-    <div class="col d-flex flex-wrap gap-2 align-items-center">
-      <span class="fs-6 fw-bold">${main.temp.toString().slice(0, 2)} °C</span>
-      <span > ${dayName} ${date} </span>
+    <div class="col d-flex flex-column align-items-start p-0 pt-1">
+      <span class="fs-3 fw-bold">${main.temp.toString().slice(0, 2)} °C</span>
+      <span > ${dayName} - ${hours}:00 h</span>
     </div>
     <div class="col-5 d-flex gap-4 align-items-center">
         <span >
@@ -171,7 +172,9 @@ function convertToLocalTime(dt) {
     "Sabado",
   ][date.getDay()];
 
-  return { dayName, date: `${day}/${month}/${year}` };
+  const hours = String(date.getHours()).padStart(2, "0");
+
+  return { dayName, date: `${day}/${month}/${year}`, hours };
 }
 
 document.addEventListener("DOMContentLoaded", function () {

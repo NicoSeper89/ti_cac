@@ -177,11 +177,24 @@ a {
 #weather-section {
   position: relative;
   width: 100vw;
-  height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-content: center;
   background-color: #0c0c0cf7;
+}
+
+#current-weather {
+  position: relative;
+  height: 10rem;
+  width: 100%;
+  background-color: rgb(75, 75, 75);
+}
+
+.extended-weather-items {
+  position: relative;
+  height: 5rem;
+  width: 100%;
+  background-color: rgb(75, 75, 75);
 }
 
 #contact-section {
