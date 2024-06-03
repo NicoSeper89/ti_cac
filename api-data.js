@@ -1,13 +1,13 @@
 const apiKey = "d34f328414e9da789accefbd4c35acc8";
 
 const weatherContainer = document.getElementById("current-weather");
-const extendedWeatherItems = document.getElementById(
+const extendedWeatherIContainer = document.getElementById(
   "extended-weather-container"
 );
+const weatherPaginationItems = document.querySelectorAll(".page-link");
 
 const lat = -29.8819399;
 const lon = -61.9451954;
-const cnt = 5;
 const cityInputtedByUser = "Rosario";
 
 async function fetchCurrentWeather() {
@@ -60,25 +60,29 @@ function createCurrentWeatherCard(weatherData) {
   weatherContainer.appendChild(currentTemp);
   weatherContainer.appendChild(imgElement);
   weatherContainer.appendChild(secondarySection);
-
 }
 
-async function fetchExtendedForecast() {
+async function fetchExtendedForecast(page) {
   try {
-    const apiCityUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&cnt=${cnt}&appid=${apiKey}&lang=es`;
+    const cnt = 40;
 
-    const response = await fetch(apiCityUrl);
+    const forecastURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&cnt=${cnt}&appid=${apiKey}&lang=es`;
+
+    const response = await fetch(forecastURL);
     const data = await response.json();
 
     if (data.cod == "400" || data.cod == "404") {
       throw new Error(data.message);
     }
 
-    extendedWeatherItems.innerHTML = ""
+    extendedWeatherIContainer.innerHTML = "";
 
-    data.list.forEach((hourlyWeatherData, i) => {
+    const start = page * 8;
+    const end = start + 8;
+
+    data.list.slice(start, end).forEach((hourlyWeatherData, i) => {
       const card = createExtendedWeatherCard(hourlyWeatherData);
-      extendedWeatherItems.appendChild(card);
+      extendedWeatherIContainer.appendChild(card);
     });
   } catch (error) {
     console.log(error);
@@ -96,12 +100,12 @@ function createExtendedWeatherCard(weatherData) {
   temp.className = `extended-weather-items rounded-1 row m-0`;
   temp.style = `background: ${style}; height: 5rem`;
 
-  imgElement.style.scale = 0.8
+  imgElement.style.scale = 0.8;
 
   temp.innerHTML = `
-    <div class="col d-flex flex-column align-items-start p-0 pt-1">
-      <span class="fs-3 fw-bold">${main.temp.toString().slice(0, 2)} °C</span>
+    <div class="col d-flex flex-column align-items-start p-0 pt-2">
       <span > ${dayName} - ${hours}:00 h</span>
+      <span class="fs-3 fw-bold">${main.temp.toString().slice(0, 2)} °C</span>
     </div>
     <div class="col-5 d-flex gap-4 align-items-center">
         <span >
@@ -179,5 +183,21 @@ function convertToLocalTime(dt) {
 
 document.addEventListener("DOMContentLoaded", function () {
   fetchCurrentWeather();
-  fetchExtendedForecast();
+  fetchExtendedForecast(0);
+
+  weatherPaginationItems.forEach((button, i) => {
+    button.addEventListener("click", (event) => {
+      extendedWeatherIContainer.innerHTML = `<div class="extended-weather-items rounded-1 row m-0"></div>
+      <div class="extended-weather-items rounded-1 row m-0"></div>
+      <div class="extended-weather-items rounded-1 row m-0"></div>
+      <div class="extended-weather-items rounded-1 row m-0"></div>
+      <div class="extended-weather-items rounded-1 row m-0"></div>
+      <div class="extended-weather-items rounded-1 row m-0"></div>
+      <div class="extended-weather-items rounded-1 row m-0"></div>
+      <div class="extended-weather-items rounded-1 row m-0"></div>
+      `;
+
+      fetchExtendedForecast(i);
+    });
+  });
 });
