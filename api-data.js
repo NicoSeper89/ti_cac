@@ -66,7 +66,7 @@ async function fetchExtendedForecast(page) {
   try {
     const cnt = 40;
 
-    const forecastURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&cnt=${cnt}&appid=${apiKey}&lang=es`;
+    const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&cnt=${cnt}&appid=${apiKey}&lang=es`;
 
     const response = await fetch(forecastURL);
     const data = await response.json();
