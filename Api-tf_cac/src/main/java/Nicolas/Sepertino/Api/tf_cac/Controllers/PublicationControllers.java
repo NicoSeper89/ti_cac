@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -18,14 +18,14 @@ public class PublicationControllers {
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public String getAllPublications () {
-        return "all publications found";
+    public List<Publication> getAllPublications () {
+        return publicationService.getAllPublications();
     }
 
     @GetMapping("/{publicationId}")
     @ResponseStatus(HttpStatus.OK)
-    public String getPublicationById(@PathVariable UUID publicationId) {
-        return "publication by id: " + publicationId + " found";
+    public Publication getPublicationById(@PathVariable UUID publicationId) {
+        return publicationService.getPublicationById(publicationId);
     }
 
     @PostMapping()
