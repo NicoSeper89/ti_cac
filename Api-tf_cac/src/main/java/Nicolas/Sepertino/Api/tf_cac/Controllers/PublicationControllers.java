@@ -1,14 +1,20 @@
-package Nicolas.Sepertino.Api.tf_cac.controllers;
+package Nicolas.Sepertino.Api.tf_cac.Controllers;
 
-import Nicolas.Sepertino.Api.tf_cac.entities.Publication;
+import Nicolas.Sepertino.Api.tf_cac.Entities.Publication;
+import Nicolas.Sepertino.Api.tf_cac.Services.IPublicationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("api/publications")
+@RequiredArgsConstructor
 public class PublicationControllers {
+
+    private final IPublicationService publicationService;
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
@@ -24,8 +30,8 @@ public class PublicationControllers {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public String createPublication(@RequestBody Publication newPublication) {
-        return "new publication created :" + newPublication.toString();
+    public Publication createPublication(@RequestBody Publication newPublication) {
+        return publicationService.createPublication(newPublication);
     }
 
     @PutMapping("/{publicationId}")

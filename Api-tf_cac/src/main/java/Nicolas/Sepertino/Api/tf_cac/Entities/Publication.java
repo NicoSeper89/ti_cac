@@ -1,10 +1,9 @@
-package Nicolas.Sepertino.Api.tf_cac.entities;
+package Nicolas.Sepertino.Api.tf_cac.Entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import java.util.Date;
 import java.util.UUID;
@@ -20,15 +19,14 @@ public class Publication {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @NonNull
     private String title;
-    @NonNull
+
     private String subtitle;
-    @NonNull
+
     private String category;
-    @NonNull
+
     private String text;
-    @NonNull
+
     private Date date;
 
 }
