@@ -10,5 +10,6 @@ public interface IPublicationService {
     List<Publication> getAllPublications();
     Publication getPublicationById(UUID newPublication);
     Publication createPublication(Publication newPublication);
-
+    Publication updatePublication(UUID publicationId, Publication publicationUpdatedData);
+    void deletePublication(UUID publicationId);
 }

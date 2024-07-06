@@ -36,13 +36,14 @@ public class PublicationControllers {
 
     @PutMapping("/{publicationId}")
     @ResponseStatus(HttpStatus.OK)
-    public String updatePublication(@PathVariable UUID publicationId, @RequestBody Publication publicationUpdateData) {
-        return "publication with id " + publicationId + " updated: " + publicationUpdateData.toString();
+    public Publication updatePublication(@PathVariable UUID publicationId, @RequestBody Publication publicationUpdateData) {
+        return publicationService.updatePublication(publicationId, publicationUpdateData);
     }
 
     @DeleteMapping("/{publicationId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePublication(@PathVariable UUID publicationId) {
+        publicationService.deletePublication(publicationId);
     }
 
 }

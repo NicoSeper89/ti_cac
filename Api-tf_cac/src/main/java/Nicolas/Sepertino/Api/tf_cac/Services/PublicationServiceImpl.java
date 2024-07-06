@@ -33,4 +33,23 @@ public class PublicationServiceImpl implements IPublicationService {
         return newPublication;
     }
 
+    @Override
+    public Publication updatePublication(UUID publicationId, Publication publicationUpdatedData) {
+
+        Publication publication = publicationRepository.findById(publicationId).get();
+
+        if (publicationUpdatedData.getTitle() != null) publication.setTitle(publicationUpdatedData.getTitle());
+        if (publicationUpdatedData.getSubtitle() != null) publication.setSubtitle(publicationUpdatedData.getSubtitle());
+        if (publicationUpdatedData.getCategory() != null) publication.setCategory(publicationUpdatedData.getCategory());
+        if (publicationUpdatedData.getText() != null) publication.setText(publicationUpdatedData.getText());
+        if (publicationUpdatedData.getDate() != null) publication.setDate(publicationUpdatedData.getDate());
+
+        return publicationRepository.save(publication);
+    }
+
+    @Override
+    public void deletePublication(UUID publicationId) {
+        publicationRepository.deleteById(publicationId);
+    }
+
 }
