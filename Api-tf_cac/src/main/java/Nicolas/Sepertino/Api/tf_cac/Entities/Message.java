@@ -1,4 +1,4 @@
-package Nicolas.Sepertino.Api.tf_cac.entities;
+package Nicolas.Sepertino.Api.tf_cac.Entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
