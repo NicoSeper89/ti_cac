@@ -7,10 +7,10 @@ import java.util.UUID;
 
 public interface IMessageService {
 
-    List<Message> getAllPublications();
-    Message getPublicationById(UUID messageId);
-    Message createPublication(Message newMessage);
-    Message updatePublication(UUID messageId, Message messageUpdatedData);
-    void deletePublication(UUID messageId);
+    List<Message> getAllMessages();
+    Message getMessageById(UUID messageId);
+    Message createMessage(Message newMessage);
+    Message updateMessage(UUID messageId, Message messageUpdatedData);
+    void deleteMessage(UUID messageId);
 
 }

@@ -15,34 +15,35 @@ public class MessageServiceImpl implements IMessageService {
     private final MessageRepository messageRepository;
 
     @Override
-    public List<Message> getAllPublications() {
+    public List<Message> getAllMessages() {
         return messageRepository.findAll();
     }
 
     @Override
-    public Message getPublicationById(UUID messageId) {
+    public Message getMessageById(UUID messageId) {
         return messageRepository.findById(messageId).get();
     }
 
     @Override
-    public Message createPublication(Message newMessage) {
+    public Message createMessage(Message newMessage) {
+
         return messageRepository.save(newMessage);
     }
 
     @Override
-    public Message updatePublication(UUID messageId, Message messageUpdatedData) {
+    public Message updateMessage(UUID messageId, Message messageUpdatedData) {
         Message message = messageRepository.findById(messageId).get();
 
         if (messageUpdatedData.getEmail() != null) message.setEmail(messageUpdatedData.getEmail());
-        if (messageUpdatedData.getOwner_name() != null) message.setOwner_name(messageUpdatedData.getOwner_name());
-        if (messageUpdatedData.getMessage() != null) message.setMessage(messageUpdatedData.getMessage());
-        if (messageUpdatedData.getDate() != null) message.setDate(messageUpdatedData.getDate());
+        if (messageUpdatedData.getName() != null) message.setName(messageUpdatedData.getName());
+        if (messageUpdatedData.getSurname() != null) message.setSurname(messageUpdatedData.getSurname());
+        if (messageUpdatedData.getBody() != null) message.setBody(messageUpdatedData.getBody());
 
         return messageRepository.save(message);
     }
 
     @Override
-    public void deletePublication(UUID messageId) {
+    public void deleteMessage(UUID messageId) {
         messageRepository.deleteById(messageId);
     }
 }

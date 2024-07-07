@@ -19,31 +19,31 @@ public class MessageControllers {
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
     public List<Message> getAllMessages () {
-        return messageService.getAllPublications();
+        return messageService.getAllMessages();
     }
 
     @GetMapping("/{messageId}")
     @ResponseStatus(HttpStatus.OK)
     public Message getMessageById(@PathVariable UUID messageId) {
-        return messageService.getPublicationById(messageId);
+        return messageService.getMessageById(messageId);
     }
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public Message createMessage(@RequestBody Message newMessage) {
-        return messageService.createPublication(newMessage);
+        return messageService.createMessage(newMessage);
     }
 
     @PutMapping("/{messageId}")
     @ResponseStatus(HttpStatus.OK)
     public Message updateMessage(@PathVariable UUID messageId, @RequestBody Message messageUpdateData) {
-        return messageService.updatePublication(messageId, messageUpdateData);
+        return messageService.updateMessage(messageId, messageUpdateData);
     }
 
     @DeleteMapping("/{messageId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteMessage(@PathVariable UUID messageId) {
-        messageService.deletePublication(messageId);
+        messageService.deleteMessage(messageId);
     }
 
 }

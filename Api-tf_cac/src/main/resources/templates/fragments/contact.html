@@ -6,9 +6,17 @@
   <div class="title col-12">
     <h3 class="pb-3">contactanos</h3>
   </div>
-  <form id="contact-form" novalidate class="row gy-4 bg-dark rounded p-4 w-50">
+  <form
+    th:action="@{/submitForm}"
+    th:object="${messageForm}"
+    id="contact-form"
+    novalidate
+    method="post"
+    class="row gy-4 bg-dark rounded p-4 w-50"
+  >
     <div class="col-6">
       <input
+        th:field="*{name}"
         id="name"
         type="text"
         class="form-control"
@@ -20,6 +28,7 @@
     </div>
     <div class="col-6">
       <input
+        th:field="*{surname}"
         id="surname"
         type="text"
         class="form-control"
@@ -31,6 +40,7 @@
     </div>
     <div class="col-12">
       <input
+        th:field="*{email}"
         id="email"
         type="email"
         class="form-control"
@@ -42,6 +52,7 @@
     </div>
     <div class="form-floating">
       <textarea
+        th:field="*{body}"
         class="form-control"
         placeholder="Leave a comment here"
         id="comment"
