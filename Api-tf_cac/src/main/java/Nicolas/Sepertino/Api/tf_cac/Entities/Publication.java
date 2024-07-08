@@ -5,8 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "publication")
@@ -25,8 +28,18 @@ public class Publication {
 
     private String category;
 
+    @Column(length = 1500)
     private String text;
 
-    private Date date;
+    @Lob
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private byte[] image;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
 }

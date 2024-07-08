@@ -7,104 +7,19 @@
   <div class="title">
     <h3 class="">NOTICIAS</h3>
   </div>
-  <div class="row row-cols-1 row-cols-md-3 g-2">
-    <div class="col">
+  <div th:if="${publications != null}" class="row row-cols-1 row-cols-md-3 g-2">
+    <div class="col" th:each="publication : ${publications}">
       <div class="card">
         <img
-          src="source/image/newsImage01.jpg"
+          th:src="'data:image/png;base64,' + ${publication.image}"
+          alt="Publication Image"
           class="card-img-top"
-          alt="imagen noticias 1"
         />
         <div class="card-body">
-          <h5 class="card-title">Noticia 1</h5>
-          <p class="card-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab
-            molestiae deserunt eligendi itaque numquam nostrum, eos aut aliquam
-            eum aliquid, quasi quae possimus minima veniam tempore architecto
-            eveniet consequuntur iure?
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img
-          src="source/image/newsImage02.jpg"
-          class="card-img-top"
-          alt="imagen noticia 2"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Noticia 2</h5>
-          <p class="card-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            reiciendis nam commodi quibusdam minima mollitia suscipit a
-            cupiditate, est velit similique! Deserunt fuga recusandae eaque
-            facilis! Odio est commodi incidunt?
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img
-          src="source/image/newsImage03.jpg"
-          class="card-img-top"
-          alt="imagen noticia 3"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img
-          src="source/image/newsImage04.jpg"
-          class="card-img-top"
-          alt="imagen noticias 4"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img
-          src="source/image/newsImage05.jpg"
-          class="card-img-top"
-          alt="imagen noticias 5"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img
-          src="source/image/newsImage06.jpg"
-          class="card-img-top"
-          alt="imagen noticias 6"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </p>
+          <h5 th:text="${publication.title}" class="card-title"></h5>
+          <span th:text="${publication.subtitle}"></span>
+          <span th:text="${publication.category}"></span>
+          <p th:text="${publication.text}" class="card-text"></p>
         </div>
       </div>
     </div>

@@ -41,7 +41,6 @@ public class PublicationServiceImpl implements IPublicationService {
         if (publicationUpdatedData.getSubtitle() != null) publication.setSubtitle(publicationUpdatedData.getSubtitle());
         if (publicationUpdatedData.getCategory() != null) publication.setCategory(publicationUpdatedData.getCategory());
         if (publicationUpdatedData.getText() != null) publication.setText(publicationUpdatedData.getText());
-        if (publicationUpdatedData.getDate() != null) publication.setDate(publicationUpdatedData.getDate());
 
         return publicationRepository.save(publication);
     }
