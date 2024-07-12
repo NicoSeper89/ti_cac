@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class PublicationControllers {
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
     public Page<Publication> getAllPublications(
-            @PageableDefault(page = 0, size = Integer.MAX_VALUE) Pageable pageable
+            @PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "createdAt", direction = Sort.Direction.ASC) Pageable pageable
            ) {      
                                 
         return publicationService.getAllPublications(pageable);
