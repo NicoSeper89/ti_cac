@@ -7,20 +7,70 @@
   <div class="title">
     <h3 class="">NOTICIAS</h3>
   </div>
-  <div th:if="${publications != null}" class="row row-cols-1 row-cols-md-3 g-2">
-    <div class="col" th:each="publication : ${publications}">
-      <div class="card">
-        <img
-          th:src="'data:image/png;base64,' + ${publication.image}"
-          alt="Publication Image"
-          class="card-img-top"
-        />
-        <div class="card-body">
-          <h5 th:text="${publication.title}" class="card-title"></h5>
-          <span th:text="${publication.subtitle}"></span>
-          <span th:text="${publication.category}"></span>
-          <p th:text="${publication.text}" class="card-text"></p>
+  <div id="publicationsContainer">
+    <div th:fragment="publicationsList" th:if="${publications != null}">
+      <div class="row row-cols-1 row-cols-md-3 g-5 p-5">
+        <div
+          class="col d-flex align-items-stretch"
+          th:each="publication : ${publications}"
+        >
+          <div class="card">
+            <img
+              style="height: 50%"
+              th:src="'data:image/png;base64,' + ${publication.image}"
+              alt="Publication Image"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 th:text="${publication.title}" class="card-title"></h5>
+              <span th:text="${publication.subtitle}"></span>
+              <span th:text="${publication.category}"></span>
+              <p th:text="${publication.text}" class="card-text"></p>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <ul class="pagination">
+          <li
+            class="page-item"
+            th:classappend="${0 >= currentPage } ? 'disabled'"
+          >
+            <a
+              class="page-link"
+              href="#"
+              th:attr="data-page=${currentPage - 1}"
+              aria-label="Previous"
+            >
+              «
+            </a>
+          </li>
+          <li
+            th:each="pageNum : ${#numbers.sequence(0, totalPages - 1)}"
+            class="page-item"
+            th:classappend="${pageNum == currentPage} ? 'active' : ''"
+          >
+            <a
+              class="page-link"
+              href="#"
+              th:attr="data-page=${pageNum}"
+              th:text="${pageNum + 1}"
+            ></a>
+          </li>
+          <li
+            class="page-item"
+            th:classappend="${currentPage >= totalPages - 1} ? 'disabled'"
+          >
+            <a
+              class="page-link"
+              href="#"
+              th:attr="data-page=${currentPage + 1}"
+              aria-label="Next"
+            >
+              »
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

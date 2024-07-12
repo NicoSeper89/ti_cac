@@ -15,10 +15,11 @@
 
     <meta name="description" content="Descripción de la página web" />
     <meta name="author" content="Nicolás Sepertino" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <body class="position-relative d-flex flex-column vw-100 overflow-x-hidden">
-
     <!-- NAVBAR -->
 
     <div th:replace="fragments/navbar :: navbar"></div>
@@ -39,7 +40,7 @@
 
     <div th:replace="fragments/history :: history"></div>
 
-     <!-- WEATHER SECTION -->
+    <!-- WEATHER SECTION -->
 
     <div th:replace="fragments/weather :: weather"></div>
 
@@ -62,5 +63,6 @@
     <!-- JS -->
     <script src="/js/scripts.js"></script>
     <script src="/js/api-data.js"></script>
+    <script src="/js/fetch-news.js"></script>
   </body>
 </html>
