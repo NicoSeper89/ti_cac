@@ -3,9 +3,11 @@ package Nicolas.Sepertino.Api.tf_cac.Services;
 import Nicolas.Sepertino.Api.tf_cac.Entities.Publication;
 import Nicolas.Sepertino.Api.tf_cac.Repositories.PublicationRepository;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -15,8 +17,9 @@ public class PublicationServiceImpl implements IPublicationService {
     private final PublicationRepository publicationRepository;
 
     @Override
-    public List<Publication> getAllPublications() {
-        return publicationRepository.findAll();
+    public Page<Publication> getAllPublications(Pageable pageable) {
+
+        return publicationRepository.findAll(pageable);
     }
 
     @Override

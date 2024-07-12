@@ -3,10 +3,13 @@ package Nicolas.Sepertino.Api.tf_cac.Controllers;
 import Nicolas.Sepertino.Api.tf_cac.Entities.Publication;
 import Nicolas.Sepertino.Api.tf_cac.Services.IPublicationService;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -18,8 +21,11 @@ public class PublicationControllers {
 
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public List<Publication> getAllPublications () {
-        return publicationService.getAllPublications();
+    public Page<Publication> getAllPublications(
+            @PageableDefault(page = 0, size = Integer.MAX_VALUE) Pageable pageable
+           ) {      
+                                
+        return publicationService.getAllPublications(pageable);
     }
 
     @GetMapping("/{publicationId}")
@@ -36,7 +42,8 @@ public class PublicationControllers {
 
     @PutMapping("/{publicationId}")
     @ResponseStatus(HttpStatus.OK)
-    public Publication updatePublication(@PathVariable UUID publicationId, @RequestBody Publication publicationUpdateData) {
+    public Publication updatePublication(@PathVariable UUID publicationId,
+            @RequestBody Publication publicationUpdateData) {
         return publicationService.updatePublication(publicationId, publicationUpdateData);
     }
 
