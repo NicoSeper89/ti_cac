@@ -45,7 +45,7 @@ public class ViewControllers {
             @RequestParam(defaultValue = "createdAt") String sortBy,
             Model model) {
 
-        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, sortBy));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, sortBy));
         Page<Publication> publicationsPage = publicationService.getAllPublications(pageable);
 
         List<PublicationDto> publicationsDtos = publicationsPage.stream().map(publication -> {

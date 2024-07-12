@@ -23,7 +23,7 @@ public class PublicationControllers {
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
     public Page<Publication> getAllPublications(
-            @PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "createdAt", direction = Sort.Direction.ASC) Pageable pageable
+            @PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
            ) {      
                                 
         return publicationService.getAllPublications(pageable);
